@@ -8,17 +8,6 @@ Este proyecto aplica técnicas avanzadas de **Procesamiento de Lenguaje Natural 
 
 ---
 
-## 🛠️ Requisitos e Instalación
-
-Para ejecutar este script, es necesario tener instalado Python y las siguientes librerías:
-
-```bash
-# Instalación de librerías
-pip install spacy spacytextblob pandas
-
-# Descarga del modelo de lenguaje en español (Large)
-python -m spacy download es_core_news_lg
-
 🧠 Metodología y Arquitectura del Pipeline
 A diferencia de un análisis básico, este proyecto utiliza un Pipeline Híbrido. Se ha modificado el flujo estándar de spaCy para integrar reglas lógicas fijas con modelos de aprendizaje estadístico:
 
@@ -28,7 +17,7 @@ Capa Estadística: El modelo es_core_news_lg realiza el etiquetado morfosintáct
 
 Capa de Extensión: Se añade un "bus de datos" adicional (spacy-textblob) que viaja por todo el documento calculando la carga emocional de cada palabra.
 
-🔍 Análisis del Código Paso a Paso
+## 🔍 Análisis del Código Paso a Paso
 1. Preparación del Entorno e Importaciones
 Se cargan las herramientas de spaCy (displacy, EntityRuler), random para la selección de muestras y spacy-textblob para el sentimiento.
 
@@ -65,9 +54,21 @@ Identificación de Verbos: Localización visual del núcleo de la oración (ROOT
 
 displacy.serve: Lanzamiento de un servidor local para visualizar el árbol de dependencias.
 
-📊 Interpretación para el Informe Ejecutivo
+## 📊 Interpretación para el Informe Ejecutivo
 Análisis Sintáctico: Permite extraer qué acciones realizan los usuarios con el producto (ej: "leer", "cargar").
 
 Análisis de Tópicos: Capacidad de categorizar el texto por "intención" incluso si no se mencionan palabras técnicas.
 
 Polaridad: Un score cercano a 1.0 indica satisfacción total, mientras que valores inferiores a 0 activan alertas de posibles quejas técnicas.
+
+## 🛠️ Requisitos e Instalación
+
+Para ejecutar este script, es necesario tener instalado Python y las siguientes librerías:
+
+```bash
+# Instalación de librerías
+pip install spacy spacytextblob pandas
+
+# Descarga del modelo de lenguaje en español (Large)
+python -m spacy download es_core_news_lg
+
